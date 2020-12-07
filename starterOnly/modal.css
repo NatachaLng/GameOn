@@ -246,7 +246,7 @@ input[data-error]::after {
   width: 20px;
   height: 20px;
   border: 2px solid #279e7a;
-  border-radius: 50%;
+  border-radius: 10%;
   text-indent: 29px;
   white-space: nowrap;
   position: absolute;
@@ -257,10 +257,10 @@ input[data-error]::after {
 .checkbox-label .checkbox-icon::after,
 .checkbox2-label .checkbox-icon::after {
   content: "";
-  width: 13px;
-  height: 13px;
+  width: 10px;
+  height: 10px;
   background-color: #279e7a;
-  border-radius: 50%;
+  border-radius: 10%;
   text-indent: 29px;
   white-space: nowrap;
   position: absolute;
@@ -281,7 +281,7 @@ input[data-error]::after {
   background: #279e7a;
 }
 
-#msgGC
+.tooltip
 {
   display: none;
   font-size: 12px;
