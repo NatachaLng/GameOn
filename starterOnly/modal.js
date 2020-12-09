@@ -11,7 +11,8 @@ function editNav() {
 const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
 const formData = document.querySelectorAll(".formData");
-const closeBtn = document.querySelectorAll (".close");
+const closeBtn = document.querySelectorAll(".close");
+
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
@@ -29,9 +30,12 @@ function closeModal() {
   modalbg.style.display = "none";
 }
 
+
 // Form elements
 var GeneralCondition = document.getElementById("GeneralCondition");
 var events = document.getElementsByTagName("location");
+
+//validation 1 location checkbox is checked
 
 var radioBtn = function (){
   var events = document.querySelectorAll(".location");
@@ -64,5 +68,27 @@ function validate(){
     formValid=radioBtn(); 
   console.log("sortie validate"+formValid);
   return formValid;
+  function displayConfirmation(){
+    if (validate==true){
+    formSent.style.display = "block";}
 }
+}
+
+//display confirmation
+const formSent = document.querySelector(".form__sent");
+
+function displayConfirmation(){
+  if (validate==true){
+  formSent.style.display = "block";}
+}
+
+// close confirmation
+const closeBtn2 = document.querySelectorAll(".close2");
+closeBtn2.forEach((btn) => btn.addEventListener("click", closeConfirmation));
+function closeConfirmation() {
+  formSent.style.display = "none";
+}
+
+
+
 

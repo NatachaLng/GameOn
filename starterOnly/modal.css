@@ -169,6 +169,18 @@ main {
   background-color: rgba(26, 39, 156, 0.4);
 }
 
+.form__sent{
+  display:none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background-color: rgba(26, 39, 156, 0.4);
+}
+
 .content {
   margin: 5% auto;
   width: 100%;
@@ -181,6 +193,27 @@ main {
   position: relative;
   color: #fff;
   padding-top: 10px;
+}
+.icon{
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+}
+
+#validationMsg
+{
+  font-size: 1.6em;
+  margin: 20px;
+  margin-bottom: 40px;
+  display:inline-block;
+  text-align: center;
+}
+.fa-check-circle
+{
+  color: aquamarine;
+  font-size: 3em;
+  text-align: center;
+  margin-top: 30px;
 }
 
 .modal-body {
@@ -306,7 +339,8 @@ input[data-error]::after {
   left: 21%;
   top: 19%;
 }
-.close {
+.close,
+.close2{
   position: absolute;
   right: 15px;
   top: 15px;
@@ -317,7 +351,9 @@ input[data-error]::after {
   transform: scale(0.7);
 }
 .close:before,
-.close:after {
+.close:after,
+.close2:before,
+.close2:after {
   position: absolute;
   left: 15px;
   content: " ";
@@ -325,10 +361,12 @@ input[data-error]::after {
   width: 3px;
   background-color: #fff;
 }
-.close:before {
+.close:before,
+.close2:before {
   transform: rotate(45deg);
 }
-.close:after {
+.close:after,
+.close2:after {
   transform: rotate(-45deg);
 }
 .btn-submit,
