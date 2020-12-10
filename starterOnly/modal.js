@@ -68,19 +68,18 @@ function validate(){
     formValid=radioBtn(); 
   console.log("sortie validate"+formValid);
   return formValid;
-  function displayConfirmation(){
-    if (validate==true){
-    formSent.style.display = "block";}
-}
 }
 
 //display confirmation
 const formSent = document.querySelector(".form__sent");
+const submitBtn = document.querySelectorAll(".btn-submit");
+
+submitBtn.forEach((btn) => btn.addEventListener("click", displayConfirmation));
 
 function displayConfirmation(){
   if (validate==true){
   formSent.style.display = "block";}
-}
+  }
 
 // close confirmation
 const closeBtn2 = document.querySelectorAll(".close2");
