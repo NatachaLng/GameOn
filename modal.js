@@ -77,16 +77,10 @@ const submitBtn = document.querySelectorAll(".btn-submit");
 submitBtn.forEach((btn) => btn.addEventListener("click", displayConfirmation));
 
 function displayConfirmation(){
-  if (validate==true){
-  formSent.style.display = "block";}
+  formSent.style.display = "block";
   }
 
-// close confirmation
-const closeBtn2 = document.querySelectorAll(".close2");
-closeBtn2.forEach((btn) => btn.addEventListener("click", closeConfirmation));
-function closeConfirmation() {
-  formSent.style.display = "none";
-}
+
 
 
 
