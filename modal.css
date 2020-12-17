@@ -219,8 +219,14 @@ main {
 {
   color: aquamarine;
   font-size: 3em;
-  text-align: center;
+  text-align: center!important;
   margin-top: 30px;
+}
+
+.iconValidMsg
+{
+  display: block;
+  text-align: center;
 }
 
 .modal-body {
