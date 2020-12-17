@@ -71,14 +71,14 @@ function validate(){
 }
 
 //display confirmation
-const formSent = document.querySelector(".form__sent");
-const submitBtn = document.querySelectorAll(".btn-submit");
+let formSent = document.querySelector(".form__sent");
 
-submitBtn.forEach((btn) => btn.addEventListener("click", displayConfirmation));
-
-function displayConfirmation(){
+if(window.location.href.indexOf("?") > 1){
   formSent.style.display = "block";
   }
+else{
+  formSent.style.display="none";
+}
 
 
 

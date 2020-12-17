@@ -59,8 +59,8 @@
           <div class="modal-body">
             <form
               name="reserve"
-              action="validation.html"
-              method="post"
+              action="index.html"
+              method="get"
               onsubmit="return validate();"
             >
               <div
@@ -222,7 +222,15 @@
         </div>
       </div>
 
+      <div class="form__sent" id="form__sent">
+        <div class="content">
+          <a href="index.html"><span class="close2" id="close2"></span></a>
+        <div class="icon"><i class="far fa-check-circle"></i></div>
+        <p id="validationMsg">Merci, nous avons bien reçu votre demande</p>
+      </div>
+      </div>
     </main>
+    
     <footer>
       <p class="copyrights">
         Copyright 2014 - 2020, GameOn Inc.
