@@ -32,7 +32,10 @@ function closeModal() {
 
 
 // Form elements
-var GeneralCondition = document.getElementById("GeneralCondition"); // define general conditions
+let lastName = document.getElementById("last");
+let email = document.getElementById("email");
+let birthDate = document.getElementById("birthdate");
+let GeneralCondition = document.getElementById("GeneralCondition"); 
 
 //validation 1 location checkbox is checked
 
@@ -52,7 +55,14 @@ var radioBtn = function (){
     return true;
   }
 
-
+let validateFirst = function(){
+  let firstName = document.getElementById("first"); 
+  if (firstName.value.length < 2) {
+    validateFirst=false;}
+    else{
+    validateFirst=true;
+    return true;}
+  }
 
 // Fonction Validate form
 function validate(){
@@ -64,7 +74,8 @@ function validate(){
   if (radioBtn==false){ //if no radio btn has been checked
     document.getElementById('msgCity').style.display='block'; //display error message
   }
-    formValid=radioBtn();  //form is valid if radioBtn has been checked (same value == true)
+  formValid=validateFirst();  
+  formValid=radioBtn();  //form is valid if radioBtn has been checked (same value == true)
   console.log("sortie validate"+formValid);
   return formValid; // return true as formValid=true
 }
