@@ -65,7 +65,7 @@ function validateEmail(){
 
 //validation birthdate
 let currentYear = 2020;
-let inputDate = new Date(document.getElementById("birthdate").value);
+let inputDate = new Date(birthDate.value);
 let birthYear = inputDate.getFullYear();
 let age = currentYear - birthYear;
 
