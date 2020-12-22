@@ -39,6 +39,22 @@ let mailformat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9
 let birthDate = document.getElementById("birthdate");
 let GeneralCondition = document.getElementById("GeneralCondition"); 
 
+//validate first name
+function validateFirstName(){
+  if (firstName.value.length < 2){
+  return false;
+    }
+  return true;
+}
+
+//validate last name
+function validateLastName(){
+  if (lastName.value.length < 2){
+  return false;
+    }
+  return true;
+}
+
 //validation email 
 function validateEmail(){
   if (!email.value.match(mailformat)){
@@ -48,10 +64,12 @@ function validateEmail(){
 }
 
 //validation birthdate
-let currentYear = 2020
-let birthYear = new Date(document.getElementById('birthdate').value)
-let age = currentYear - birthYear
+let currentYear = 2020;
+let inputDate = new Date(document.getElementById("birthdate").value);
+let birthYear = inputDate.getFullYear();
+let age = currentYear - birthYear;
 
+console.log(age)
 
 function validateUnderAge(){
   if (age<18) {;
@@ -85,23 +103,10 @@ var radioBtn = function (){
     return true;
   }
 
-/*let validateFirst = function(){
-
-  if (firstName.value.length < 2) {
-    validateFirst=false;}
-    else{
-    validateFirst=true;
-    return true;}
-  }*/
-
 // Fonction Validate form
 function validate(){
   console.log("validate");
   formValid = true;
-  if (firstName.value.length < 2){
-    formValid=false;}
-  if (lastName.value.length < 2){
-    formValid=false;}
   if (!GeneralCondition.checked){//if general conditions hasn't been checked
     document.getElementById('msgGC').style.display='block'; //display message
     formValid=false; }
@@ -110,9 +115,11 @@ function validate(){
   }
   if (validateUnderAge==false){
     alert('Vous devez être majeur pour participer');}
-  if (validateBirthDate=false){
+  if (validateBirthDate==false){
     document.getElementById('msgBirthDate').style.display='block';
   }
+  formValid=validateFirstName();
+  formValid=validateLastName();
   formValid=validateEmail(); 
   formValid=validateUnderAge();
   formValid=validateBirthDate(); 
