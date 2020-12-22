@@ -32,10 +32,40 @@ function closeModal() {
 
 
 // Form elements
+let firstName = document.getElementById("first"); 
 let lastName = document.getElementById("last");
 let email = document.getElementById("email");
+let mailformat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 let birthDate = document.getElementById("birthdate");
 let GeneralCondition = document.getElementById("GeneralCondition"); 
+
+//validation email 
+function validateEmail(){
+  if (!email.value.match(mailformat)){
+  return false;
+    }
+  return true;
+}
+
+//validation birthdate
+let currentYear = 2020
+let birthYear = new Date(document.getElementById('birthdate').value)
+let age = currentYear - birthYear
+
+
+function validateUnderAge(){
+  if (age<18) {;
+    return false;
+  }
+  return true;
+}
+
+function validateBirthDate(){
+if (age>120) {
+  return false;
+}
+return true;
+}
 
 //validation 1 location checkbox is checked
 
@@ -55,26 +85,37 @@ var radioBtn = function (){
     return true;
   }
 
-let validateFirst = function(){
-  let firstName = document.getElementById("first"); 
+/*let validateFirst = function(){
+
   if (firstName.value.length < 2) {
     validateFirst=false;}
     else{
     validateFirst=true;
     return true;}
-  }
+  }*/
 
 // Fonction Validate form
 function validate(){
   console.log("validate");
   formValid = true;
+  if (firstName.value.length < 2){
+    formValid=false;}
+  if (lastName.value.length < 2){
+    formValid=false;}
   if (!GeneralCondition.checked){//if general conditions hasn't been checked
     document.getElementById('msgGC').style.display='block'; //display message
     formValid=false; }
   if (radioBtn==false){ //if no radio btn has been checked
     document.getElementById('msgCity').style.display='block'; //display error message
   }
-  formValid=validateFirst();  
+  if (validateUnderAge==false){
+    alert('Vous devez être majeur pour participer');}
+  if (validateBirthDate=false){
+    document.getElementById('msgBirthDate').style.display='block';
+  }
+  formValid=validateEmail(); 
+  formValid=validateUnderAge();
+  formValid=validateBirthDate(); 
   formValid=radioBtn();  //form is valid if radioBtn has been checked (same value == true)
   console.log("sortie validate"+formValid);
   return formValid; // return true as formValid=true
