@@ -65,25 +65,32 @@ function validateEmail(){
 
 //validation birthdate
 let currentYear = 2020;
-let inputDate = new Date(birthDate.value);
-let birthYear = inputDate.getFullYear();
-let age = currentYear - birthYear;
 
-console.log(age)
+document.getElementById("birthdate").addEventListener("change", function() {
+  let input = this.value;
+  let dateEntered = new Date(input);
+  let birthYear = dateEntered.getFullYear();
 
-function validateUnderAge(){
-  if (age<18) {;
+  let age = currentYear - birthYear;
+  console.log(age);
+
+  let validateUnderAge = function(){
+    if (age<18) {;
+      return false;
+    }
+    return true;
+  }
+  
+  let validateBirthDate = function(){
+  if (age>120) {
     return false;
   }
   return true;
-}
+  }
+});
 
-function validateBirthDate(){
-if (age>120) {
-  return false;
-}
-return true;
-}
+
+
 
 //validation 1 location checkbox is checked
 
