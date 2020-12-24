@@ -13,6 +13,7 @@ const modalBtn = document.querySelectorAll(".modal-btn");
 const formData = document.querySelectorAll(".formData");
 const closeBtn = document.querySelectorAll(".close");
 
+//queryselectorAll radio btn if click then don't display otherwise display
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
@@ -66,35 +67,33 @@ function validateEmail(){
 //validation birthdate
 let currentYear = 2020;
 
-document.getElementById("birthdate").addEventListener("change", function() {
-  let input = this.value;
+
+function testAge(){
+  let birthdate=document.getElementById("birthdate");
+  let input = birthdate.value;
   let dateEntered = new Date(input);
   let birthYear = dateEntered.getFullYear();
 
-  let age = currentYear - birthYear;
-  console.log(age);
+  return ( currentYear - birthYear);
+}
 
-  let validateUnderAge = function(){
-    if (age<18) {;
-      return false;
-    }
-    return true;
-  }
-  
-  let validateBirthDate = function(){
-  if (age>120) {
+ function validateUnderAge(){
+  if (testAge()<18) {
     return false;
   }
   return true;
   }
-});
-
-
-
+  
+  function validateBirthDate(){
+  if (testAge()>120) {
+    return false;
+  }
+  return true;
+  }
 
 //validation 1 location checkbox is checked
 
-var radioBtn = function (){
+function radioBtn(){
   var events = document.querySelectorAll(".location");
   var nbChecked = 0;
   console.log(events, events.value);
@@ -111,26 +110,35 @@ var radioBtn = function (){
   }
 
 // Fonction Validate form
+
 function validate(){
   console.log("validate");
   formValid = true;
   if (!GeneralCondition.checked){//if general conditions hasn't been checked
     document.getElementById('msgGC').style.display='block'; //display message
-    formValid=false; }
-  if (radioBtn==false){ //if no radio btn has been checked
+    formValid=false; 
+  }
+  if (radioBtn()==false){ //if no radio btn has been checked
     document.getElementById('msgCity').style.display='block'; //display error message
   }
-  if (validateUnderAge==false){
-    alert('Vous devez être majeur pour participer');}
-  if (validateBirthDate==false){
+  if (!validateUnderAge()){
+    alert('Vous devez être majeur pour participer');
+  }
+  if (!validateBirthDate()){
     document.getElementById('msgBirthDate').style.display='block';
   }
-  formValid=validateFirstName();
-  formValid=validateLastName();
-  formValid=validateEmail(); 
-  formValid=validateUnderAge();
-  formValid=validateBirthDate(); 
-  formValid=radioBtn();  //form is valid if radioBtn has been checked (same value == true)
+  //formValid=validateFirstName();
+  formValid=(formValid && validateFirstName());
+  console.log(formValid + "firstName");
+  formValid=(formValid && validateLastName());
+  console.log(formValid+ "lasttName");
+  formValid=(formValid && validateEmail()); 
+  console.log(formValid+ "email");
+  formValid=(formValid && validateUnderAge());
+  console.log(formValid + "underAge");
+  formValid=(formValid && validateBirthDate()); 
+  console.log(formValid + "overAge");
+  formValid=(formValid && radioBtn());  //form is valid if radioBtn has been checked (same value == true)
   console.log("sortie validate"+formValid);
   return formValid; // return true as formValid=true
 }
