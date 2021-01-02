@@ -8,6 +8,11 @@
   margin: 0;
   padding: 0;
 }
+
+a
+{
+  text-decoration: none;
+}
 /* Landing Page */
 
 body {
@@ -122,6 +127,7 @@ main {
 
 }
 
+
 .modal-btn {
   font-size: 145%;
   background: #fe142f;
@@ -211,7 +217,7 @@ main {
 {
   font-size: 1.6em;
   margin: 20px;
-  margin-bottom: 40px;
+  margin-top: 200px;
   display:inline-block;
   text-align: center;
 }
@@ -385,6 +391,7 @@ input[data-error]::after {
   transform: rotate(-45deg);
 }
 .btn-submit,
+.btn-close,
 .btn-signup {
   background: #fe142f;
   display: block;
@@ -397,6 +404,11 @@ input[data-error]::after {
   border: 0;
 }
 
+.btn-close
+{
+  margin-top: 200px;
+  margin-bottom: 10px;
+}
 
 
 /* custom select styles */
@@ -471,7 +483,6 @@ input[data-error]::after {
   font-size: 16px;
 }
 .hero-section {
-  min-height: 93vh;
   border-radius: 10px;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -560,20 +571,47 @@ footer {
     display: none;
   }
   .hero-headline {
-    font-size: 4.5rem;
+    font-size: 2.5rem;
     white-space: normal;
   }
   .hero-text {
-    font-size: 1.5rem;
+    font-size: 1rem;
+    margin-top: 0;
   }
   .hero-img img {
     border-radius: 10px;
-    margin-top: 40px;
+    margin-top: 0px;
   }
   .hero-section > .btn-signup {
     display: block;
     margin: 32px auto 10px;
     padding: 12px 35px;
+  }
+
+  label{
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+
+  .bground,
+  .form__sent
+  {
+    min-height: 100%;
+    top: 80px;
+    background-color:rgba(255, 255, 255, 1);
+  }
+
+  .text-control{
+    height: 35px;
+  }
+
+  #validationMsg
+  {
+    margin-top: 150px;
+  }
+
+  .btn-close{
+    margin-top: 100px;
   }
   .copyrights {
     margin-top: 50px;
