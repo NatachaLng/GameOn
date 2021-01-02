@@ -333,6 +333,8 @@ input[data-error]::after {
   font-size: 12px;
   color: #e54858;
   margin-left: 35px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 .checkbox2-label .checkbox-icon {

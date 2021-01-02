@@ -107,7 +107,8 @@
                   name="birthdate"
                   required
                 />
-                <div id="msgBirthDate" class="tooltip">Veuillez sélectionner une date de naissance valide</div><br>
+                <div id="msgUnderAge" class="tooltip">Vous devez être majeur pour pouvoir participer à l'évènement</div>
+                <div id="msgBirthDate" class="tooltip">Veuillez sélectionner une date de naissance valide</div>
               </div>
               <div
                 class="formData">
@@ -214,7 +215,7 @@
                 class="btn-submit button"
                 type="submit"
                 value="C'est parti"
-                
+                onclick="validate()"
               />
             </form>
           </div>

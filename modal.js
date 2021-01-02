@@ -42,7 +42,7 @@ let GeneralCondition = document.getElementById("GeneralCondition");
 
 //validate first name
 function validateFirstName(){
-  if (firstName.value.length < 2){
+  if (firstName.value.length < 2){ //double check from HTML
   return false;
     }
   return true;
@@ -50,7 +50,7 @@ function validateFirstName(){
 
 //validate last name
 function validateLastName(){
-  if (lastName.value.length < 2){
+  if (lastName.value.length < 2){ //double check from HTML
   return false;
     }
   return true;
@@ -58,13 +58,13 @@ function validateLastName(){
 
 //validation email 
 function validateEmail(){
-  if (!email.value.match(mailformat)){
+  if (!email.value.match(mailformat)){ //double check from HTML
   return false;
     }
   return true;
 }
 
-//validation birthdate
+//validation birthdate (additional check, format is validated by HTML)
 let currentYear = 2020;
 
 
@@ -77,14 +77,14 @@ function testAge(){
   return ( currentYear - birthYear);
 }
 
- function validateUnderAge(){
+ function validateUnderAge(){ //check if the participant is under Age
   if (testAge()<18) {
     return false;
   }
   return true;
   }
   
-  function validateBirthDate(){
+  function validateBirthDate(){ //check if the date is valid
   if (testAge()>120) {
     return false;
   }
@@ -103,7 +103,6 @@ function radioBtn(){
       }
     console.log(nbChecked.value)}
     if (nbChecked==0){ //if no box has been checked
-      document.getElementById('msgCity').style.display='block'; // make the error message appear
       return false;
         }
     return true;
@@ -121,13 +120,20 @@ function validate(){
   if (radioBtn()==false){ //if no radio btn has been checked
     document.getElementById('msgCity').style.display='block'; //display error message
   }
+  else {document.getElementById('msgCity').style.display='none'; //hide error message
+  }
   if (!validateUnderAge()){
-    alert('Vous devez être majeur pour participer');
+    document.getElementById('msgUnderAge').style.display="block"; //display error message
+  }
+  else {
+    document.getElementById('msgUnderAge').style.display="none"; //hide error message
   }
   if (!validateBirthDate()){
-    document.getElementById('msgBirthDate').style.display='block';
+    document.getElementById('msgBirthDate').style.display='block'; //display error message
   }
-  //formValid=validateFirstName();
+  else {
+    document.getElementById('msgBirthDate').style.display="none"; //hide error message
+  }
   formValid=(formValid && validateFirstName());
   console.log(formValid + "firstName");
   formValid=(formValid && validateLastName());
@@ -138,7 +144,7 @@ function validate(){
   console.log(formValid + "underAge");
   formValid=(formValid && validateBirthDate()); 
   console.log(formValid + "overAge");
-  formValid=(formValid && radioBtn());  //form is valid if radioBtn has been checked (same value == true)
+  formValid=(formValid && radioBtn());  //form is valid if all verifications are valid (=== true)
   console.log("sortie validate"+formValid);
   return formValid; // return true as formValid=true
 }
