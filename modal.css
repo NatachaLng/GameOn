@@ -172,7 +172,7 @@ main {
 
 .bground {
   display: none;
-  position: fixed;
+  position: absolute;
   z-index: 1;
   left: 0;
   top: 0;
@@ -589,8 +589,13 @@ footer {
   }
 
   label{
-    font-size: 14px;
+    font-size: 12px;
     margin-bottom: 8px;
+  }
+
+  .header-logo
+  {
+    max-width: 80%;
   }
 
   .bground,
@@ -602,7 +607,17 @@ footer {
   }
 
   .text-control{
-    height: 35px;
+    height: 30px;
+  }
+
+  .text-label 
+  {
+    font-size: 14px;
+  }
+
+  #msgGC
+  {
+    margin-bottom: -20px;
   }
 
   #validationMsg
