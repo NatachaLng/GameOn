@@ -9,14 +9,14 @@ function editNav() {
 
 // DOM Elements
 const modalbg = document.querySelector(".bground");
-const modalBtn = document.querySelectorAll(".modal-btn");
+const modalBtn = document.querySelector(".modal-btn");
 const formData = document.querySelectorAll(".formData");
-const closeBtn = document.querySelectorAll(".close");
+const closeBtn = document.querySelector(".close");
 
 //queryselectorAll radio btn if click then don't display otherwise display
 
 // launch modal event
-modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
+modalBtn.addEventListener("click", launchModal);
 
 // launch modal form
 function launchModal() {
@@ -24,7 +24,7 @@ function launchModal() {
 }
 
 // close modal event
-closeBtn.forEach((btn) => btn.addEventListener("click", closeModal));
+closeBtn.addEventListener("click", closeModal);
 
 // close modal form
 function closeModal() {
@@ -33,7 +33,9 @@ function closeModal() {
 
 
 // Form elements
-let firstName = document.getElementById("first"); 
+let firstName = document.getElementById("first");
+let msgFirst = document.getElementById("msgFirst");
+let msgLast = document.getElementById("msgLast");
 let lastName = document.getElementById("last");
 let email = document.getElementById("email");
 let mailformat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
@@ -42,17 +44,21 @@ let GeneralCondition = document.getElementById("GeneralCondition");
 
 //validate first name
 function validateFirstName(){
-  if (firstName.value.length < 2){ //double check from HTML
+  if ((firstName.value.length < 2) || (!firstName.value.match(/^([a-zA-Z]+)$/))){ //double check from HTML
+    msgFirst.style.display = "block";
   return false;
     }
+    msgFirst.style.display = "none";
   return true;
 }
 
 //validate last name
 function validateLastName(){
-  if (lastName.value.length < 2){ //double check from HTML
+  if ((lastName.value.length < 2) || (!lastName.value.match(/^([a-zA-Z]+)$/))){ //double check from HTML
+    msgLast.style.display = "block";
   return false;
     }
+    msgLast.style.display = "none";
   return true;
 }
 
